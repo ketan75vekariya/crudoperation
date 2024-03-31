@@ -17,6 +17,8 @@
 	    	<div class="col-4">
 			    <form:form method="POST" modelAttribute = "todo">
 			    	Description <form:input type="text" path="description" class="form-control" required="required"/>
+			    	<form:errors path="description" cssClass="text-warning" />
+			    	<br/>
 			    	<form:input type="hidden" path="id"/>
 			    	<form:input type="hidden" path="done"/>
 			    	<input type="submit" class="btn btn-success mt-3">    
