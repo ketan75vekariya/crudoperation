@@ -6,7 +6,7 @@
   </head>
 
   <body>
-    <h1>Welcome Todo Page</h1>
+    <h1>Welcome to Todo Page ${name}</h1>
     <div>Your name is: ${todos}</div>
     
   </body>

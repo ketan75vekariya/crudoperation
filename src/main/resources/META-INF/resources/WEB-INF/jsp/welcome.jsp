@@ -8,6 +8,7 @@
   <body>
     <h1>Welcome Page</h1>
     <div>Your name is: ${name}</div>
+    <div><a href = "todo-list">Manage</a> your todos</div>
     
   </body>
 </html>
