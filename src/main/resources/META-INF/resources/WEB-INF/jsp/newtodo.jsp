@@ -1,3 +1,5 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,10 +15,12 @@
 	    <pre>${errorMessage}</pre>
 	    <div class = "row">
 	    	<div class="col-4">
-			    <form method="POST">
-			    	Description <input type="text" name="description" class="form-control"/>
+			    <form:form method="POST" modelAttribute = "todo">
+			    	Description <form:input type="text" path="description" class="form-control" required="required"/>
+			    	<form:input type="hidden" path="id"/>
+			    	<form:input type="hidden" path="done"/>
 			    	<input type="submit" class="btn btn-success mt-3">    
-			    </form>
+			    </form:form>
 		    </div>
 	    </div>
     </div>

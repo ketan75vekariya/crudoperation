@@ -14,8 +14,8 @@
 	    <div class = "row">
 	    	<div class="col-4">
 			    <form method="POST">
-			    	Name: <input type="text" name="name" class="form-control"/>
-			    	Password: <input type="Password" name="password" class="form-control"/>
+			    	Name: <input type="text" name="name" class="form-control" required="required"/>
+			    	Password: <input type="Password" name="password" class="form-control" required="required"/>
 					<input type="submit" class="btn btn-success mt-3">     
 			    </form>
 		    </div>
