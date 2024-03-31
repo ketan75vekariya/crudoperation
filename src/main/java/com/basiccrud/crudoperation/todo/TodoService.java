@@ -3,6 +3,7 @@ package com.basiccrud.crudoperation.todo;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 import org.springframework.stereotype.Service;
 @Service 
@@ -25,5 +26,10 @@ public class TodoService {
 		// TODO Auto-generated method stub
 		Todo todo = new Todo(++todoCounts, username,description,targetDate,done);
 		todos.add(todo);
+	}
+	
+	public void deleteById(int id) {
+		Predicate<? super Todo> Predicate = todo -> todo.getId() == id;
+		todos.removeIf(Predicate);
 	}
 }
