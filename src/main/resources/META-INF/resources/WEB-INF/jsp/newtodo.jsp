@@ -14,7 +14,7 @@
 	    <div class = "row">
 	    	<div class="col-4">
 			    <form method="POST">
-			    	Description <input type="text" name="name" class="form-control"/>
+			    	Description <input type="text" name="description" class="form-control"/>
 			    	<input type="submit" class="btn btn-success mt-3">    
 			    </form>
 		    </div>

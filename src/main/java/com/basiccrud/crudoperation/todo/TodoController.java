@@ -1,11 +1,13 @@
 package com.basiccrud.crudoperation.todo;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class TodoController {
@@ -29,8 +31,9 @@ public class TodoController {
 		return "newtodo";
 	}
 	@RequestMapping(value = "add-todo", method= RequestMethod.POST)
-	public String addTodo(ModelMap model) {
-		
+	public String addTodo(@RequestParam String description, ModelMap model) {
+		String username = (String)model.get("name");
+		todoService.addTodo(username, description,LocalDate.now().plusYears(3),false);
 		return "redirect:todo-list";
 	}
 }
