@@ -9,6 +9,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class LoginController {
 	
+	private AuthenticationService authenticationservice;
+	
+	
+	
+	public LoginController(AuthenticationService authenticationservice) {
+		super();
+		this.authenticationservice = authenticationservice;
+	}
 	@RequestMapping(value = "login", method = RequestMethod.GET)
 	public String gotoLoginPage() {
 		
@@ -16,9 +24,15 @@ public class LoginController {
 	}
 	@RequestMapping(value = "login", method = RequestMethod.POST)
 	public String gotoWelcompage(@RequestParam String name, @RequestParam String password, ModelMap model) {
-		model.put("name", name);
-		model.put("password", password);
+		
+		
+		if(authenticationservice.authenticationservice(name, password)) {
+			model.put("name", name);
 		return "welcome";
+		}
+		
+		model.put("errorMessage", "Invalid Username or Password please try agin");
+		return "login";
 	}
 
 }

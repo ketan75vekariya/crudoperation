@@ -8,7 +8,6 @@
   <body>
     <h1>Welcome Page</h1>
     <div>Your name is: ${name}</div>
-    <div>Your password is : ${password}</div>
     
   </body>
 </html>

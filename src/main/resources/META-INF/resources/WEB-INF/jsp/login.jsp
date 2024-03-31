@@ -7,7 +7,7 @@
 
   <body>
     <h1>Login Page</h1>
-    
+    <pre>${errorMessage}</pre>
     <form method="POST">
     	Name: <input type="text" name="name"/>
     	Password: <input type="Password" name="password"/>
