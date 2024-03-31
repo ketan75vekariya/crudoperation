@@ -6,6 +6,6 @@
   </head>
 
   <body>
-    <h1>Logins</h1>
+    <h1>Login with ${name}</h1>
   </body>
 </html>
