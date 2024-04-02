@@ -4,24 +4,36 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
 import jakarta.validation.Valid;
 @Service 
 public class TodoService {
-	private static List<Todo> todos = new ArrayList();
+	private static List<Todo> todos = new ArrayList<Todo>();
 	private static int todoCounts  = 0;
 
 	static {
-		todos.add(new Todo(++todoCounts, "Ketan Kumar", "Learn Spring", LocalDate.now().plusYears(1), false));
-		todos.add(new Todo(++todoCounts, "Ketan Kumar", "Learn Spring boot", LocalDate.now().plusYears(2), false));
-		todos.add(new Todo(++todoCounts, "Ketan Kumar", "Learn React", LocalDate.now().plusYears(3), false));
-		todos.add(new Todo(++todoCounts, "Ketan Kumar", "Learn AWS", LocalDate.now().plusYears(4), false));
+		todos.add(new Todo(++todoCounts, "user", "Learn Spring", LocalDate.now().plusYears(1), false));
+		todos.add(new Todo(++todoCounts, "user", "Learn Spring boot", LocalDate.now().plusYears(2), false));
+		todos.add(new Todo(++todoCounts, "user", "Learn React", LocalDate.now().plusYears(3), false));
+		todos.add(new Todo(++todoCounts, "user", "Learn AWS", LocalDate.now().plusYears(4), false));
 	}
 
-	public List<Todo> findByUsername(String Username) {
-		return todos;
+	
+	
+	public List<Todo> findByUsername(String username) {
+		 Predicate<? super Todo> predicate = todo -> todo.getUsername().equalsIgnoreCase(username);
+	        
+	        return todos.stream().filter(predicate).collect(Collectors.toList());
+		
+		
+	    /*Predicate<? super Todo> predicate = todo -> {
+	        String todoUsername = todo.getUsername();
+	        return todoUsername != null && todoUsername.equalsIgnoreCase(username);
+	    };
+	    return todos.stream().filter(predicate).toList();*/
 	}
 
 	public void addTodo(String username, String description, LocalDate targetDate, boolean done) {
