@@ -2,10 +2,15 @@ package com.basiccrud.crudoperation.todo;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.Size;
-
+@Entity
 public class Todo {
 
+	@Id
+	@GeneratedValue
 	private int id;
 	private String username;
 	@Size(min = 10, message="Please enter minimum 10 character")
